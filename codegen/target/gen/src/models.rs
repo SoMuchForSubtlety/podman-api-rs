@@ -469,7 +469,7 @@ pub struct ContainerNetworkConfig {
     pub publish_image_ports: Option<bool>,
     #[serde(rename = "static_ip")]
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub static_ip: Option<Ip>,
+    pub static_ip: Option<String>,
     #[serde(rename = "static_ipv6")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub static_ipv6: Option<Ip>,
@@ -2169,9 +2169,9 @@ pub struct LibpodPodInspectResponse {
     #[serde(rename = "Id")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub id: Option<String>,
-    #[serde(rename = "InfraConfig")]
-    #[serde(skip_serializing_if = "Option::is_none")]
-    pub infra_config: Option<InspectPodInfraConfig>,
+    // #[serde(rename = "InfraConfig")]
+    // #[serde(skip_serializing_if = "Option::is_none")]
+    // pub infra_config: Option<InspectPodInfraConfig>,
     /// InfraContainerID is the ID of the pod's infra container, if one is present.
     #[serde(rename = "InfraContainerID")]
     #[serde(skip_serializing_if = "Option::is_none")]
@@ -3457,9 +3457,9 @@ pub struct InspectPodInfraConfig {
     #[serde(rename = "PortBindings")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub port_bindings: Option<HashMap<String, Option<Vec<InspectHostPort>>>>,
-    #[serde(rename = "StaticIP")]
-    #[serde(skip_serializing_if = "Option::is_none")]
-    pub static_ip: Option<Ip>,
+    // #[serde(rename = "StaticIP")]
+    // #[serde(skip_serializing_if = "Option::is_none")]
+    // pub static_ip: Option<String>,
     /// StaticMAC is a static MAC address that will be assigned to the infra container and then used by the pod.
     #[serde(rename = "StaticMAC")]
     #[serde(skip_serializing_if = "Option::is_none")]
@@ -4557,7 +4557,7 @@ pub struct NetOptions {
     pub portmappings: Option<Vec<PortMapping>>,
     #[serde(rename = "static_ip")]
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub static_ip: Option<Ip>,
+    pub static_ip: Option<String>,
     #[serde(rename = "static_mac")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub static_mac: Option<HardwareAddr>,
@@ -5520,7 +5520,7 @@ pub struct PodNetworkConfig {
     pub portmappings: Option<Vec<PortMapping>>,
     #[serde(rename = "static_ip")]
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub static_ip: Option<Ip>,
+    pub static_ip: Option<String>,
     #[serde(rename = "static_mac")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub static_mac: Option<HardwareAddr>,
@@ -5683,7 +5683,7 @@ pub struct PodSpecGenerator {
     pub shared_namespaces: Option<Vec<String>>,
     #[serde(rename = "static_ip")]
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub static_ip: Option<Ip>,
+    pub static_ip: Option<String>,
     #[serde(rename = "static_mac")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub static_mac: Option<HardwareAddr>,
@@ -6476,7 +6476,7 @@ pub struct SpecGenerator {
     pub shm_size: Option<i64>,
     #[serde(rename = "static_ip")]
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub static_ip: Option<Ip>,
+    pub static_ip: Option<String>,
     #[serde(rename = "static_ipv6")]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub static_ipv6: Option<Ip>,
